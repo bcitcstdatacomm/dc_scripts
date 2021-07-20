@@ -49,7 +49,7 @@ for dir in $ROOT_DIRS; do
 	mkdir ~/"$BASE_DIR"/$dir
 done
 
-#clone_repo ~/"$BASE_DIR"/3rdparty        "$REPOS_3RD_PARTY"   "$2" "$3"
-#clone_repo ~/"$BASE_DIR"/libraries       "$REPOS_LIBRARIES"   "$2" "$3"
-#clone_repo ~/"$BASE_DIR"/tools           "$REPOS_TOOLS"       "$2" "$3"
+clone_repo ~/"$BASE_DIR"/3rdparty        "$REPOS_3RD_PARTY"   "$2" "$3"
+clone_repo ~/"$BASE_DIR"/libraries       "$REPOS_LIBRARIES"   "$2" "$3"
+clone_repo ~/"$BASE_DIR"/tools           "$REPOS_TOOLS"       "$2" "$3"
 clone_sub_repo ~/"$BASE_DIR"/programming "$REPOS_PROGRAMMING" "$2" "$3"
