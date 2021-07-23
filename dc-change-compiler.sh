@@ -25,7 +25,7 @@ if [ -z ${3} ]; then echo "usage: ./dc-change-compiler.sh <dir name to install t
 BASE_DIR="$1/dc"
 ROOT_DIRS="3rdparty libraries tools programming"
 REPOS_3RD_PARTY="cgreen-devs/cgreen hyperrealm/libconfig"
-REPOS_LIBRARIES="bcitcstdatacomm/libdc_posix bcitcstdatacomm/libdc_util bcitcstdatacomm/libdc_fsm bcitcstdatacomm/libdc_network bcitcstdatacomm/libdc_application"
+REPOS_LIBRARIES="bcitcstdatacomm/libdc_error bcitcstdatacomm/libdc_posix bcitcstdatacomm/libdc_util bcitcstdatacomm/libdc_fsm bcitcstdatacomm/libdc_network bcitcstdatacomm/libdc_application"
 REPOS_TOOLS="bcitcstdatacomm/dc_dump"
 
 echo "Setting up: $BASE_DIR"

@@ -43,7 +43,7 @@ if [ -z ${1} ]; then echo "usage: ./dc-install.sh <dir name to update>"; exit 1;
 
 BASE_DIR="$1/dc"
 REPOS_3RD_PARTY="cgreen-devs/cgreen hyperrealm/libconfig"
-REPOS_LIBRARIES="bcitcstdatacomm/libdc_posix bcitcstdatacomm/libdc_util bcitcstdatacomm/libdc_fsm bcitcstdatacomm/libdc_network bcitcstdatacomm/libdc_application"
+REPOS_LIBRARIES="bcitcstdatacomm/libdc_error bcitcstdatacomm/libdc_posix bcitcstdatacomm/libdc_util bcitcstdatacomm/libdc_fsm bcitcstdatacomm/libdc_network bcitcstdatacomm/libdc_application"
 REPOS_TOOLS="bcitcstdatacomm/dc_dump"
 REPOS_PROGRAMMING="bcitcstdatacomm/c_programming bcitcstdatacomm/posix_programming bcitcstdatacomm/network_programming"
 
