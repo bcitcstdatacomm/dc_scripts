@@ -16,9 +16,25 @@ update_repo()
     if [ "$HEAD_VERSION" != "$LOCAL_VERSION" ]; then
       git -C $REPO_DIR_NAME pull
       cmake --build $REPO_DIR_NAME/cmake-build-debug --target rebuild_cache
+
+      if [ "$?" -ne 0 ]; then
+          printf "ERROR building %s" $2
+          exit 1
+      fi
+
       cmake --build $REPO_DIR_NAME/cmake-build-debug --clean-first
+
+      if [ "$?" -ne 0 ]; then
+          printf "ERROR building %s" $2
+          exit 1
+      fi
     else
       cmake --build $REPO_DIR_NAME/cmake-build-debug
+
+      if [ "$?" -ne 0 ]; then
+          printf "ERROR building %s" $2
+          exit 1
+      fi
     fi
 
     sudo cmake --install $REPO_DIR_NAME/cmake-build-debug
