@@ -8,13 +8,16 @@ clone_repo()
     git clone https://github.com/$repo.git
     REPO_DIR_NAME=$(basename $repo)
     mkdir $REPO_DIR_NAME/cmake-build-debug
-    cmake -DCMAKE_C_COMPILER="$3" -DCMAKE_CXX_COMPILER="$4" -S $REPO_DIR_NAME -B $REPO_DIR_NAME/cmake-build-debug
+    pushd $REPO_DIR_NAME/cmake-build-debug || exit
+#    cmake -DCMAKE_C_COMPILER="$3" -DCMAKE_CXX_COMPILER="$4" -S $REPO_DIR_NAME -B $REPO_DIR_NAME/cmake-build-debug
+    cmake -DCMAKE_C_COMPILER="$3" -DCMAKE_CXX_COMPILER="$4" ..
 
     if [ "$?" -ne 0 ]; then
         printf "ERROR building %s" $2
         exit 1
     fi
 
+    popd || exit
     cmake --build $REPO_DIR_NAME/cmake-build-debug
 
     if [ "$?" -ne 0 ]; then

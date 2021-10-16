@@ -27,7 +27,7 @@ change_compiler()
         printf "ERROR building %s" $2
         exit 1
     fi
-    
+
     if command -v ldconfig &> /dev/null
     then
       sudo ldconfig
