@@ -38,6 +38,11 @@ update_repo()
     fi
 
     sudo cmake --install $REPO_DIR_NAME/cmake-build-debug
+
+    if [ "$?" -ne 0 ]; then
+        printf "ERROR building %s" $2
+        exit 1
+    fi
   done
 
   popd > /dev/null || exit

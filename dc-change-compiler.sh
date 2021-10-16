@@ -8,9 +8,26 @@ change_compiler()
     REPO_DIR_NAME=$(basename $repo)
     rm -rf $REPO_DIR_NAME/cmake-build-debug/*
     cmake -DCMAKE_C_COMPILER="$3" -DCMAKE_CXX_COMPILER="$4" -S $REPO_DIR_NAME -B $REPO_DIR_NAME/cmake-build-debug
+
+    if [ "$?" -ne 0 ]; then
+        printf "ERROR building %s" $2
+        exit 1
+    fi
+
     cmake --build $REPO_DIR_NAME/cmake-build-debug
+
+    if [ "$?" -ne 0 ]; then
+        printf "ERROR building %s" $2
+        exit 1
+    fi
+
     sudo cmake --install $REPO_DIR_NAME/cmake-build-debug
 
+    if [ "$?" -ne 0 ]; then
+        printf "ERROR building %s" $2
+        exit 1
+    fi
+    
     if command -v ldconfig &> /dev/null
     then
       sudo ldconfig
