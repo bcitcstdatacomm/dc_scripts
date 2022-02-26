@@ -6,8 +6,9 @@ remove_file()
 }
  
 remove_file libdc_application
-remove_file libdc_error libdc_application
-remove_file libdc_fsm libdc_application
-remove_file libdc_network libdc_application
-remove_file libdc_posix libdc_application
-remove_file libdc_util libdc_application
+remove_file libdc_error
+remove_file libdc_fsm
+remove_file libdc_network
+remove_file libdc_posix
+remove_file libdc_unix
+remove_file libdc_util
