@@ -4,28 +4,27 @@ clone_repo()
 {
   pushd $1 > /dev/null || exit
 
+  pwd
+
   for repo in $2; do
     git clone https://github.com/$repo.git
     REPO_DIR_NAME=$(basename $repo)
-    mkdir $REPO_DIR_NAME/cmake-build-debug
-    pushd $REPO_DIR_NAME/cmake-build-debug || exit
-#    cmake -DCMAKE_C_COMPILER="$3" -DCMAKE_CXX_COMPILER="$4" -S $REPO_DIR_NAME -B $REPO_DIR_NAME/cmake-build-debug
-    cmake -DCMAKE_C_COMPILER="$3" -DCMAKE_CXX_COMPILER="$4" ..
+    pushd "$REPO_DIR_NAME" > /dev/null || exit
+    cmake -S . -B cmake-build-debug -DCMAKE_C_COMPILER="$3" -DCMAKE_CXX_COMPILER="$4"
 
     if [ "$?" -ne 0 ]; then
         printf "ERROR building %s" $2
         exit 1
     fi
 
-    popd || exit
-    cmake --build $REPO_DIR_NAME/cmake-build-debug
+    cmake --build cmake-build-debug
 
     if [ "$?" -ne 0 ]; then
         printf "ERROR building %s" $2
         exit 1
     fi
 
-    sudo cmake --install $REPO_DIR_NAME/cmake-build-debug
+    sudo cmake --install cmake-build-debug
 
     if [ "$?" -ne 0 ]; then
         printf "ERROR building %s" $2
@@ -36,6 +35,9 @@ clone_repo()
     then
       sudo ldconfig
     fi
+
+    rm -rf cmake-build-debug
+    popd > /dev/null || exit
   done
 
   popd > /dev/null || exit
