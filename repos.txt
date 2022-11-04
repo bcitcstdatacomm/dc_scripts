@@ -7,7 +7,6 @@ libraries https://github.com/bcitcstdatacomm/libdc_posix
 libraries https://github.com/bcitcstdatacomm/libdc_posix_xsi
 libraries https://github.com/bcitcstdatacomm/libdc_posix_optional
 libraries https://github.com/bcitcstdatacomm/libdc_unix
-libraries https://github.com/bcitcstdatacomm/libdc_unix_ncurses
 libraries https://github.com/bcitcstdatacomm/libdc_util
 libraries https://github.com/bcitcstdatacomm/libdc_fsm
 libraries https://github.com/bcitcstdatacomm/libdc_network
