@@ -80,7 +80,7 @@ do_update()
     base="${parts[0]}"
     repo="${parts[1]}"
     dirpath=$1/$base/$(basename $repo)
-    repo_update $1/$base
+    repo_update dirpath
     cmake_init $dirpath
     cmake_build $dirpath
     cmake_install $dirpath
