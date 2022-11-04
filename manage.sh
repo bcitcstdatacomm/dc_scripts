@@ -10,7 +10,7 @@ repo_clone()
   popd || exit
 }
 
-# $1 directory
+# $1 directory path
 repo_update()
 {
   pushd "$1" || exit
@@ -18,36 +18,30 @@ repo_update()
   popd || exit
 }
 
-# $1
-# $2
-# $3
+# $1 directory path
+# $2 c compiler
+# $3 c++ compiler
 cmake_init()
 {
-  cmake -S $1 -B $1/cmake-build-debug
+  cmake -DCMAKE_C_COMPILER="$2" -DCMAKE_CXX_COMPILER="$3" -S "$1" -B "$1"/cmake-build-debug
 }
 
-# $1
-# $2
-# $3
+# $1 directory path
 cmake_build()
 {
-  cmake --build $1/cmake-build-debug
+  cmake --build "$1"/cmake-build-debug
 }
 
-# $1
-# $2
-# $3
+# $1 directory path
 cmake_install()
 {
-  sudo cmake --install $1/cmake-build-debug
+  sudo cmake --install "$1"/cmake-build-debug
 }
 
-# $1
-# $2
-# $3
+# $1 directory path
 cmake_remove()
 {
-  rm -rf $1/cmake-build-debug
+  rm -rf "$1"/cmake-build-debug
 }
 
 # $1 rootdir path
@@ -62,7 +56,7 @@ do_install()
     repo="${parts[1]}"
     dirpath=$1/$base/$(basename $repo)
     repo_clone $repo $1/$base
-    cmake_init $dirpath
+    cmake_init $dirpath "$3" "$4"
     cmake_build $dirpath
     cmake_install $dirpath
     cmake_remove $dirpath
@@ -80,8 +74,9 @@ do_update()
     base="${parts[0]}"
     repo="${parts[1]}"
     dirpath=$1/$base/$(basename $repo)
+    cmake_remove $dirpath
     repo_update $dirpath
-    cmake_init $dirpath
+    cmake_init $dirpath "$3" "$4"
     cmake_build $dirpath
     cmake_install $dirpath
     cmake_remove $dirpath
@@ -98,14 +93,16 @@ do_build()
     parts=( ${line} )
     base="${parts[0]}"
     repo="${parts[1]}"
+    cmake_remove $dirpath
     dirpath=$1/$base/$(basename $repo)
-    cmake_init $dirpath
+    cmake_init $dirpath "$3" "$4"
     cmake_build $dirpath
     cmake_install $dirpath
     cmake_remove $dirpath
   done < "$2"
 }
 
+# $1 optional message
 usage()
 {
   if [[ $# -eq 1 ]]
