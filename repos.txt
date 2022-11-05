@@ -1,16 +1,16 @@
-3rdparty https://github.com/cgreen-devs/cgreen
-3rdparty https://github.com/hyperrealm/libconfig
-libraries https://github.com/bcitcstdatacomm/libdc_error
-libraries https://github.com/bcitcstdatacomm/libdc_env
-libraries https://github.com/bcitcstdatacomm/libdc_c
-libraries https://github.com/bcitcstdatacomm/libdc_posix
-libraries https://github.com/bcitcstdatacomm/libdc_posix_xsi
-libraries https://github.com/bcitcstdatacomm/libdc_posix_optional
-libraries https://github.com/bcitcstdatacomm/libdc_unix
-libraries https://github.com/bcitcstdatacomm/libdc_util
-libraries https://github.com/bcitcstdatacomm/libdc_fsm
-libraries https://github.com/bcitcstdatacomm/libdc_network
-libraries https://github.com/bcitcstdatacomm/libdc_application
-tools https://github.com/bcitcstdatacomm/dc-dump
-tools https://github.com/bcitcstdatacomm/dc-http-requester
-tools https://github.com/bcitcstdatacomm/dc-network-snake
+3rdparty https://github.com/cgreen-devs/cgreen libcgreen*.* cgreen
+3rdparty https://github.com/hyperrealm/libconfig libconfig*.* libconfig.*
+libraries https://github.com/bcitcstdatacomm/libdc_error libdc_error*.* dc_error
+libraries https://github.com/bcitcstdatacomm/libdc_env libdc_env*.* dc_env
+libraries https://github.com/bcitcstdatacomm/libdc_c libdc_c*.* dc_c
+libraries https://github.com/bcitcstdatacomm/libdc_posix libdc_posix*.* dc_posix
+libraries https://github.com/bcitcstdatacomm/libdc_posix_xsi libdc_posix_xsi*.* dc_posix_xsi
+libraries https://github.com/bcitcstdatacomm/libdc_posix_optional libdc_posix_optional*.* dc_posix_optional
+libraries https://github.com/bcitcstdatacomm/libdc_unix libdc_unix*.* dc_unix
+libraries https://github.com/bcitcstdatacomm/libdc_util libdc_util*.* dc_util
+libraries https://github.com/bcitcstdatacomm/libdc_fsm libdc_fsm*.* dc_fsm
+libraries https://github.com/bcitcstdatacomm/libdc_network libdc_network*.* dc_network
+libraries https://github.com/bcitcstdatacomm/libdc_application libdc_application*.* dc_application
+tools https://github.com/bcitcstdatacomm/dc-dump dcdump*
+tools https://github.com/bcitcstdatacomm/dc-http-requester dchttprequester*
+tools https://github.com/bcitcstdatacomm/dc-network-snake dcnetworksnake*
